@@ -358,6 +358,9 @@ static NSString * const SDKName = @"JB4ASDK";
  */
 - (BOOL)isRegisteredForRemoteNotifications;
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+
 /**
  Wrapper for iOS' application:registerUserNotificationSettings; call.
  
@@ -382,6 +385,7 @@ static NSString * const SDKName = @"JB4ASDK";
  */
 - (void)didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings;
 
+#pragma clang diagnostic pop
 
 /**
  Responsible for sending a received token back to Salesforce. It marks the end of the token registration flow. If it is unable to reach ET server, it will save the token and try again later.
@@ -464,12 +468,17 @@ static NSString * const SDKName = @"JB4ASDK";
  */
 - (void) handleRemoteNotification:( NSDictionary * _Nullable ) userInfo;
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+
 /** Handles a notification received by the app (in response to -application:didReceiveLocalNotification:)
  
  @param localNotification The localNotification received by the application
   
  */
 - (void) handleLocalNotification:( UILocalNotification * _Nullable ) localNotification;
+
+#pragma clang diagnostic pop
 
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_10_0
 /** Handles an iOS 10 notification received by the app (in response to -userNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:)
